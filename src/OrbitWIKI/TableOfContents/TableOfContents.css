@@ -1,0 +1,31 @@
+.tableOfContents-body{
+    height: 78vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.tableOfContents-body .container{
+    width: 80%;
+    height: 500px;
+    background-color: #050B0F;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.tableOfContents-body .container .header-container{
+    width: 100%;
+    text-align: center;
+
+    border-bottom: solid;
+    border-width: 2px;
+}

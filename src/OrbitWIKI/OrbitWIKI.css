@@ -1,0 +1,47 @@
+.OrbitWIKI-header {
+  margin: auto;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
+    url(./resources/satellite-bp.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  height: 100vh;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.OrbitWIKI-header .text-box {
+  width: 60%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 50%;
+}
+
+.OrbitWIKI-header .text-box .container {
+  padding: 5%;
+}
+
+.OrbitWIKI-header .text-box h1 {
+  margin: 0;
+  font-size: 70px;
+  color: #e3a935;
+}
+
+.OrbitWIKI-header .text-box p {
+  font-size: 22px;
+}
+
+.header-down-arrow {
+  background-color: yellow;
+  height: 10%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

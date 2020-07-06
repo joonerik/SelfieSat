@@ -3,6 +3,10 @@ import Home from "./Home/Home";
 import NavBar from "./NavBar/NavBar/NavBar";
 import SideDrawer from "./NavBar/SideDrawer/SideDrawer";
 import BackDrop from "./NavBar/BackDrop/BackDrop";
+import OrbitWIKI from "./OrbitWIKI/OrbitWIKI";
+import Footer from "./Footer/Footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 class App extends Component {
   constructor(props) {
@@ -31,12 +35,19 @@ class App extends Component {
     }
 
     return (
-      <div style={{ height: "100%" }}>
-        <NavBar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer show={this.state.sideDrawerOpen} />
-        {backDrop}
-        <Home />
-      </div>
+      <Router>
+        <ScrollToTop />
+        <div style={{ height: "100%" }}>
+          <NavBar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backDrop}
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/orbitWIKI" component={OrbitWIKI} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
