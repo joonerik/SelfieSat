@@ -7,6 +7,8 @@ import OrbitWIKI from "./OrbitWIKI/OrbitWIKI";
 import Footer from "./Footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
+import GetStarted from "./GetStarted/GetStarted";
+import StepProgressBar from "./GetStarted/StepProgressBar";
 
 class App extends Component {
   constructor(props) {
@@ -35,19 +37,22 @@ class App extends Component {
     }
 
     return (
+      <StepProgressBar />
+      /*
       <Router>
         <ScrollToTop />
         <div style={{ height: "100%" }}>
           <NavBar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backDrop}
+          <GetStarted />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/orbitWIKI" component={OrbitWIKI} />
           </Switch>
           <Footer />
         </div>
-      </Router>
+      </Router>*/
     );
   }
 }
