@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import Form from "./Form";
+import Form from "./components/Form";
 import formBackground from "./resources/form-background.jpg";
 import formBackground2 from "./resources/form-background2.jpg";
 import formBackground3 from "./resources/form-background3.jpg";
@@ -11,7 +11,7 @@ import formBackground7 from "./resources/form-background7.jpg";
 import formBackground8 from "./resources/form-background8.jpg";
 import formBackground9 from "./resources/form-background9.jpg";
 import formBackground10 from "./resources/form-background10.jpg";
-import StepProgressBar from "./StepProgressBar";
+import StepProgressBar from "./components/StepProgressBar";
 
 
 export default class GetStarted extends Component {
@@ -19,7 +19,6 @@ export default class GetStarted extends Component {
     return (
       <GetStartedContainer>
         <Form />
-        <StepProgressBar />
       </GetStartedContainer>
     );
   }

@@ -8,7 +8,8 @@ import Footer from "./Footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import GetStarted from "./GetStarted/GetStarted";
-import StepProgressBar from "./GetStarted/StepProgressBar";
+import StepProgressBar from "./GetStarted/components/StepProgressBar";
+import DraggableUploader from "./GetStarted/components/ImageUploader/DraggableUploader";
 
 class App extends Component {
   constructor(props) {
@@ -37,8 +38,6 @@ class App extends Component {
     }
 
     return (
-      <StepProgressBar />
-      /*
       <Router>
         <ScrollToTop />
         <div style={{ height: "100%" }}>
@@ -52,7 +51,7 @@ class App extends Component {
           </Switch>
           <Footer />
         </div>
-      </Router>*/
+      </Router>
     );
   }
 }

@@ -72,6 +72,7 @@ const StepProgressBarContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
 
   ul li .fa::after{
@@ -83,7 +84,6 @@ const StepProgressBarContainer = styled.div`
       position: absolute;
       left: 0;
       top: 115px;
-      z-index: -1;
   }
 
   ul li:first-child .fa::after{
