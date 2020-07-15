@@ -7,7 +7,6 @@ function WIKIMains(props) {
   var color;
   var border;
   var background;
-  var direction;
   if (props.boolean) {
     order = {
       flexFlow: "row-reverse",

@@ -60,6 +60,10 @@
   transition: all 0.5s;
 }
 
+.toolbar-navigation-items a:hover{
+  text-decoration: none;
+}
+
 .toolbar-navigation-items a::before {
   top: 0;
   transform-origin: left;

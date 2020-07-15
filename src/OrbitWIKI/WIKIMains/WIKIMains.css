@@ -53,7 +53,7 @@
 .WIKIMains-button a {
   width: 100%;
   max-width: 240px;
-  height: 54px;
+  height: 70px;
   padding: 8px;
   font-size: 0.8rem;
   font-weight: 900;
@@ -69,8 +69,8 @@
   content: "";
   width: 1px;
   position: absolute;
-  height: 8px;
-  background: #0f1923;
+  height: 20px;
+  background: black;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
@@ -104,7 +104,7 @@
   height: 2px;
   left: -1px;
   top: -1px;
-  background: #0f1923;
+  background: black;
   position: absolute;
   transition: 0.3s ease-out all;
 }
@@ -125,17 +125,7 @@
   left: 0;
   top: 0;
 }
-.WIKIMains-button a p span.text:after {
-  content: "";
-  width: 4px;
-  height: 4px;
-  right: 0;
-  bottom: 0;
-  background: #0f1923;
-  position: absolute;
-  transition: 0.3s ease-out all;
-  z-index: 5;
-}
+
 .WIKIMains-button a:hover {
   color: #ece8e1;
   cursor: pointer;

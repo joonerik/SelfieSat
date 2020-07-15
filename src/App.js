@@ -40,14 +40,14 @@ class App extends Component {
     return (
       <Router>
         <ScrollToTop />
-        <div style={{ height: "100%" }}>
+        <div style={{ height: "100%", fontFamily: "'Montserrat', sans-serif" }}>
           <NavBar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backDrop}
-          <GetStarted />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/orbitWIKI" component={OrbitWIKI} />
+            <Route path="/getStarted" component={GetStarted} />
           </Switch>
           <Footer />
         </div>
