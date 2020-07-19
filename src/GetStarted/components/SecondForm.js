@@ -1,14 +1,12 @@
 import React from 'react'
 import styled, { css } from "styled-components";
-import { AnchorButton, Intent } from "@blueprintjs/core";
 import DraggableUploader from './ImageUploader/DraggableUploader';
 
 
 function SecondForm(props) {
     return (
         <SecondFormContainer>
-            <DraggableUploader />
-            <AnchorButton text="back" intent={Intent.SUCCESS} onClick={props.onClickBack} />
+            <DraggableUploader onClick={props.onClickBack}/>
         </SecondFormContainer>
     )
 }

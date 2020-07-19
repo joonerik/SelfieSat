@@ -3,6 +3,7 @@ import "./DraggableUploader.css";
 import { AnchorButton, Intent } from "@blueprintjs/core";
 import UploadedImagePreview from "./UploadedImagePreview";
 
+
 export default class DraggableUploader extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +48,12 @@ export default class DraggableUploader extends Component {
     }
   };
 
+  removeImage = () => {
+    this.setState({
+      selectedFile: null
+    })
+  }
+
   render() {
     return (
       <div
@@ -56,7 +63,7 @@ export default class DraggableUploader extends Component {
           flexDirection: "column",
         }}
       >
-        <div className="sub-header">Drag an Image</div>
+        <div className="sub-header"><h1>Drag an Image</h1></div>
         {this.state.selectedFile === null ? (
           <div className="draggable-container">
             <input
@@ -82,9 +89,9 @@ export default class DraggableUploader extends Component {
               />
             </div>
           </div>
-        ) : <UploadedImagePreview image={this.state.selectedFile}/>}
+        ) : <UploadedImagePreview image={this.state.selectedFile} removeButtonHandler={this.removeImage}/>}
 
-        <AnchorButton text="Submit" intent={Intent.SUCCESS} />
+        <AnchorButton text="Submit" intent={Intent.SUCCESS} onClick={this.props.onClick}/>
       </div>
     );
   }

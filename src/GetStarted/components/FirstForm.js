@@ -1,48 +1,50 @@
-import React from 'react'
+import React from "react";
 import styled, { css } from "styled-components";
+import { Button, Icon } from "@blueprintjs/core";
 
 function FirstForm(props) {
-    return (
-        <FirstFormContainer>
-          <h2>Send in your picture!</h2>
-          <div class="row100">
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required"></input>
-                <span class="text">First Name</span>
-                <span class="line"></span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required"></input>
-                <span class="text">Last Name</span>
-                <span class="line"></span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required"></input>
-                <span class="text">Email</span>
-                <span class="line"></span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required"></input>
-                <span class="text">Phone</span>
-                <span class="line"></span>
-              </div>
-            </div>
+  return (
+    <FirstFormContainer>
+      <h2>Send in your picture!</h2>
+      <div class="row100">
+        <div class="col">
+          <div class="inputBox">
+            <input type="text" name="" required="required"></input>
+            <span class="text">First Name</span>
+            <span class="line"></span>
           </div>
-
-          <div class="row100">
-            <div class="col">
-              <input type="submit" value="next" onClick={props.onClickNext}/>
-            </div>
+        </div>
+        <div class="col">
+          <div class="inputBox">
+            <input type="text" name="" required="required"></input>
+            <span class="text">Last Name</span>
+            <span class="line"></span>
           </div>
-        </FirstFormContainer>
-    )
+        </div>
+        <div class="col">
+          <div class="inputBox">
+            <input type="text" name="" required="required"></input>
+            <span class="text">Email</span>
+            <span class="line"></span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="inputBox">
+            <input type="text" name="" required="required"></input>
+            <span class="text">Phone</span>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row100">
+        <div class="col">
+          <div className="button">
+            <Button rightIcon="arrow-right" intent="primary" text="Next step" onClick={props.onClickNext} />
+          </div>
+        </div>
+      </div>
+    </FirstFormContainer>
+  );
 }
 
 const FirstFormContainer = styled.div`
@@ -56,8 +58,6 @@ const FirstFormContainer = styled.div`
   padding: 40px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
-
-  
 
   h2 {
     width: 100%;
@@ -88,7 +88,7 @@ const FirstFormContainer = styled.div`
     color: #305d82;
   }
 
-  .row100 .inputBox input{
+  .row100 .inputBox input {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -130,6 +130,11 @@ const FirstFormContainer = styled.div`
     border-radius: 2px;
     pointer-events: none;
   }
+
+  .row100 .col .button{
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
 
-export default FirstForm
+export default FirstForm;
