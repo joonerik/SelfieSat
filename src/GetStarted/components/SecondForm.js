@@ -1,12 +1,13 @@
 import React from 'react'
 import styled, { css } from "styled-components";
 import DraggableUploader from './ImageUploader/DraggableUploader';
+import DraggableUploaderV2 from './ImageUploader/DraggableUploaderV2';
 
 
 function SecondForm(props) {
     return (
         <SecondFormContainer>
-            <DraggableUploader onClick={props.onClickBack}/>
+            <DraggableUploaderV2 onClickBack={props.onClickBack}/>
         </SecondFormContainer>
     )
 }

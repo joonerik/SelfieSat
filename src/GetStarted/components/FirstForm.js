@@ -1,49 +1,70 @@
-import React from "react";
+import React, {useState} from 'react';
 import styled, { css } from "styled-components";
 import { Button, Icon } from "@blueprintjs/core";
+import DraggableUploaderV2 from './ImageUploader/DraggableUploaderV2';
+
 
 function FirstForm(props) {
+  /*
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  
+  //Handle inputs
+  const handleFirstName=(e)=>{
+    setFirstName(e.target.value);
+    console.log(firstName);
+  }
+  const handleLastName=(e)=>{
+    setLastName(e.target.value);
+  }
+  const handleEmail=(e)=>{
+    setEmail(e.target.value);
+  }
+  const handlePhone=(e)=>{
+    setPhone(e.target.value);
+  }
+
+*/
+
+
   return (
-    <FirstFormContainer>
-      <h2>Send in your picture!</h2>
-      <div class="row100">
-        <div class="col">
-          <div class="inputBox">
-            <input type="text" name="" required="required"></input>
-            <span class="text">First Name</span>
-            <span class="line"></span>
+    <form>
+      <FirstFormContainer>
+        <h2>Send in your picture!</h2>
+        <div class="row100">
+          <div class="col">
+            <div class="inputBox">
+              <input type="text" name="firstName" required="required" value={props.firstName} onChange={props.handleFirstName}></input>
+              <span class="text">First Name</span>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="inputBox">
+              <input type="text" name="lastName" required="required" value={props.lastName} onChange={props.handleLastName}></input>
+              <span class="text">Last Name</span>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="inputBox">
+              <input type="text" name="email" required="required" value={props.email} onChange={props.handleEmail}></input>
+              <span class="text">Email</span>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="inputBox">
+              <input type="text" name="phone" required="required" value={props.phone} onChange={props.handlePhone}></input>
+              <span class="text">Phone</span>
+              <span class="line"></span>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <div class="inputBox">
-            <input type="text" name="" required="required"></input>
-            <span class="text">Last Name</span>
-            <span class="line"></span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="inputBox">
-            <input type="text" name="" required="required"></input>
-            <span class="text">Email</span>
-            <span class="line"></span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="inputBox">
-            <input type="text" name="" required="required"></input>
-            <span class="text">Phone</span>
-            <span class="line"></span>
-          </div>
-        </div>
-      </div>
-      <div class="row100">
-        <div class="col">
-          <div className="button">
-            <Button rightIcon="arrow-right" intent="primary" text="Next step" onClick={props.onClickNext} />
-          </div>
-        </div>
-      </div>
-    </FirstFormContainer>
+      </FirstFormContainer>
+    </form>
   );
 }
 
@@ -54,10 +75,8 @@ const FirstFormContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
+  
+  
 
   h2 {
     width: 100%;
@@ -69,7 +88,7 @@ const FirstFormContainer = styled.div`
 
   .row100 {
     position: relative;
-    width: 70%;
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(autofit, minmax(300px, 1fr));
   }
@@ -131,7 +150,7 @@ const FirstFormContainer = styled.div`
     pointer-events: none;
   }
 
-  .row100 .col .button{
+  .row100 .col .button {
     display: flex;
     justify-content: flex-end;
   }

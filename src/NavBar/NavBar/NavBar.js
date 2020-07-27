@@ -12,21 +12,25 @@ export default class NavBar extends Component {
     this.state = {
       scrolled: false,
     };
+
+    this.onScroll = this.onScroll.bind(this);
+  }
+
+  onScroll() {
+    const isTop = window.scrollY < window.innerHeight;
+    if (isTop !== true) {
+      this.setState({ scrolled: true });
+    } else {
+      this.setState({ scrolled: false });
+    }
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", () => {
-      const isTop = window.scrollY < window.innerHeight;
-      if (isTop !== true) {
-        this.setState({ scrolled: true });
-      } else {
-        this.setState({ scrolled: false });
-      }
-    });
+    window.addEventListener("scroll", this.onScroll, false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll");
+    window.removeEventListener("scroll", this.onScroll, false);
   }
 
   render() {

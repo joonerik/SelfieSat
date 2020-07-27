@@ -11,6 +11,13 @@ import formBackground7 from "./resources/form-background7.jpg";
 import formBackground8 from "./resources/form-background8.jpg";
 import formBackground9 from "./resources/form-background9.jpg";
 import formBackground10 from "./resources/form-background10.jpg";
+import testFormBackground from "./resources/testFormBackground.jpg"
+import testFormBackground2 from "./resources/testFormBackground2.jpg"
+import testFormBackground3 from "./resources/testFormBackground3.jpg"
+import testFormBackground4 from "./resources/testFormBackground4.png"
+import testFormBackground5 from "./resources/testFormBackground5.jpg"
+
+
 import StepProgressBar from "./components/StepProgressBar";
 
 
@@ -27,17 +34,18 @@ export default class GetStarted extends Component {
 const GetStartedContainer = styled.div`
   margin: auto;
   width: 100%;
-  height: 100vh;
+  min-height: 130vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 
   background:
-    url(${formBackground10}) no-repeat center center;
+    url(${testFormBackground5}) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: 100% 100%;
   
   
 `;
