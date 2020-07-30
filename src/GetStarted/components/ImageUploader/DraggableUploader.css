@@ -11,6 +11,12 @@
     font-family: "Montserrat", sans-serif;
     margin-top: 60px;
 }
+
+.inner-container .cropping-image-view{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 .inner-container .sub-header {
     text-align: center;
     font-size: 12px;

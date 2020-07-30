@@ -85,24 +85,16 @@ function generateDownload(previewCanvas, crop) {
 }
 
 function DraggableUploaderV2(props) {
-  const [files, setFiles] = useState([]);
-
   const [upImg, setUpImg] = useState();
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
   const [crop, setCrop] = useState({ unit: "%", width: 30, aspect: 1 / 1 });
   const [completedCrop, setCompletedCrop] = useState(null);
 
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        )
-      );
+      setUpImg(URL.createObjectURL(acceptedFiles[0]));
     },
   });
 
@@ -118,8 +110,11 @@ function DraggableUploaderV2(props) {
     imgRef.current = img;
   }, []);
 
+  const handleResetButtonClicked = () => {
+    setUpImg(null);
+  }
+
   useEffect(() => {
-    files.forEach((file) => URL.revokeObjectURL(file.preview));
     if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
       return;
     }
@@ -149,28 +144,38 @@ function DraggableUploaderV2(props) {
       crop.width,
       crop.height
     );
-  }, [completedCrop, files]);
+  }, [completedCrop]);
 
   return (
     <div className="inner-container">
-      <div
-        {...getRootProps({ className: "dropzone" })}
-        id="draggable-container"
-      >
-        <input {...getInputProps()} onChange={onSelectFile} />
-        <div className="helper-text">Drag and Drop Images Here</div>
-        <div className="file-browser-container">
-          <AnchorButton text="Browse" intent={Intent.PRIMARY} minimal={true} />
+      {upImg == null ? (
+        <div
+          {...getRootProps({ className: "dropzone" })}
+          id="draggable-container"
+        >
+          <input {...getInputProps()} onChange={onSelectFile} />
+          <div className="helper-text">Drag and Drop Images Here</div>
+          <div className="file-browser-container">
+            <AnchorButton
+              text="Browse"
+              intent={Intent.PRIMARY}
+              minimal={true}
+            />
+          </div>
         </div>
-      </div>
-      <ReactCrop
-        src={upImg}
-        onImageLoaded={onLoad}
-        crop={crop}
-        onChange={(c) => setCrop(c)}
-        onComplete={(c) => setCompletedCrop(c)}
-      />
-      <div>
+      ) : (
+        <div className="cropping-image-view">
+          <ReactCrop
+            src={upImg}
+            onImageLoaded={onLoad}
+            crop={crop}
+            onChange={(c) => setCrop(c)}
+            onComplete={(c) => setCompletedCrop(c)}
+          />
+          <AnchorButton icon="refresh" intent="danger" text="Reset" style={{width: "15%", margin: "10px 0 10px 10px", alignSelf: "flex-end"}} onClick={handleResetButtonClicked}/>
+        </div>
+      )}
+      {/*<div>
         <canvas
           ref={previewCanvasRef}
           style={{
@@ -178,8 +183,10 @@ function DraggableUploaderV2(props) {
             height: completedCrop?.height ?? 0,
           }}
         />
-      </div>
-      <AnchorButton text="Submit" intent={Intent.PRIMARY} />
+        </div>*/}
+      <br></br>
+      <br></br>
+      
     </div>
   );
 }
