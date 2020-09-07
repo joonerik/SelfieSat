@@ -19,6 +19,8 @@ function Form() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [image, setImage] = useState(null);
+
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (e) => {

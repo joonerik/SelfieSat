@@ -13,7 +13,7 @@
   color: white;
 }
 #home-header .container {
-  padding-top: 14%;
+  padding-top: 18%;
   padding-left: 14%;
 }
 
@@ -27,4 +27,47 @@
 }
 
 #home-main {
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1025px){
+  #home-header .container {
+    padding-top: 22%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  #home-header .container {
+    padding-top: 25%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home-header .container {
+    padding-top: 0;
+    padding-left: 0;
+    text-align: center;
+  }
+  #home-header .container h1{
+    font-size: 40px;
+  }
+  #home-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #home-header {
+    margin: auto;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      url(./resources/earth-background-mobile.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll;
+  
+    height: 100vh;
+  
+    color: white;
+  }
 }

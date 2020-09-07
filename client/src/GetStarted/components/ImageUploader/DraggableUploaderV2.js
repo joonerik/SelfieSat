@@ -112,7 +112,7 @@ function DraggableUploaderV2(props) {
 
   const handleResetButtonClicked = () => {
     setUpImg(null);
-  }
+  };
 
   useEffect(() => {
     if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
@@ -146,6 +146,7 @@ function DraggableUploaderV2(props) {
     );
   }, [completedCrop]);
 
+
   return (
     <div className="inner-container">
       {upImg == null ? (
@@ -172,7 +173,17 @@ function DraggableUploaderV2(props) {
             onChange={(c) => setCrop(c)}
             onComplete={(c) => setCompletedCrop(c)}
           />
-          <AnchorButton icon="refresh" intent="danger" text="Reset" style={{width: "15%", margin: "10px 0 10px 10px", alignSelf: "flex-end"}} onClick={handleResetButtonClicked}/>
+          <AnchorButton
+            icon="refresh"
+            intent="danger"
+            text="Reset"
+            style={{
+              width: "15%",
+              margin: "10px 0 10px 10px",
+              alignSelf: "flex-end",
+            }}
+            onClick={handleResetButtonClicked}
+          />
         </div>
       )}
       {/*<div>
@@ -186,7 +197,7 @@ function DraggableUploaderV2(props) {
         </div>*/}
       <br></br>
       <br></br>
-      
+      <img src={completedCrop}></img>
     </div>
   );
 }

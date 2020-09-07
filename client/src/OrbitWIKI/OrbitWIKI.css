@@ -29,12 +29,12 @@
 
 .OrbitWIKI-header .text-box h1 {
   margin: 0;
-  font-size: 70px;
+  font-size: 60px;
   color: #e3a935;
 }
 
 .OrbitWIKI-header .text-box p {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .header-down-arrow {
@@ -43,4 +43,44 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1025px) {
+
+  .OrbitWIKI-header .text-box p {
+    font-size: 19px;
+  }
+  .OrbitWIKI-header .text-box h1 {
+    font-size: 58px;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+
+  .OrbitWIKI-header .text-box p {
+    font-size: 17px;
+  }
+  .OrbitWIKI-header .text-box h1 {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 768px){
+
+  .OrbitWIKI-header .text-box p {
+    font-size: 14px;
+  }
+  .OrbitWIKI-header .text-box h1 {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 550px){
+
+  .OrbitWIKI-header .text-box p {
+    font-size: 13px;
+  }
+  .OrbitWIKI-header .text-box h1 {
+    font-size: 40px;
+  }
+  .OrbitWIKI-header .text-box {
+    width: 80%;
+  }
 }

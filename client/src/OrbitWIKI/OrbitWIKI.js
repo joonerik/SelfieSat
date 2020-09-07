@@ -15,7 +15,7 @@ import test8 from "./resources/test8.png";
 export default class OrbitWIKI extends Component {
   render() {
     return (
-      <div style={{overflowX: "hidden"}}>
+      <div>
         <header className="OrbitWIKI-header">
           <div className="text-box">
             <div className="container">

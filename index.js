@@ -33,6 +33,11 @@ app.post("/api/form", (req, res) => {
       replyTo: "test@testaccount.com",
       subject: "New Message",
       html: htmlEmail,
+      attachments:[
+        {
+          contents: new Buffer(req.files.image, 'base64')
+        }
+      ]
     };
 
     transporter.sendMail(mailOptions, (err, info) => {
