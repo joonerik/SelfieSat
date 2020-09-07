@@ -29,10 +29,11 @@
 }
 
 .WIKIMains-right .container {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-flow: column wrap;
   text-align: center;
+  justify-content: center;
 }
 
 .WIKIMains-right p {
@@ -135,4 +136,32 @@
 }
 .WIKIMains-button a:hover span.text:after {
   background: #ece8e1;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .WIKIMains-right p {
+    font-size: 18px;
+  }
+  .WIKIMains-right h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .WIKIMains-right p {
+    font-size: 13px;
+  }
+  .WIKIMains-right h1 {
+    font-size: 23 px;
+  }
+  .WIKIMains-left {
+    display: none;
+  }
+  .WIKIMains-body {
+    background-color: black;
+    height: 74vh;
+
+    display: flex;
+    justify-content: center;
+  }
 }
