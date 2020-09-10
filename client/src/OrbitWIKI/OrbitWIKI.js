@@ -94,7 +94,7 @@ export default class OrbitWIKI extends Component {
         />
         <WIKIMains
           image={test7}
-          header="ON-BOARD-COMPUTER"
+          header="OBC"
           info="OBC is short for On-Board Computer. The OBC team is responsible for programming our satellite’s main computer 
           and giving assistance in programming to the ADCS team. The main computer handles commands from the ground, monitor 
           the system and change its operating modes. It is the satellites functional center and a key part to make the satellite 

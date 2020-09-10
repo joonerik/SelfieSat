@@ -1,6 +1,8 @@
 import React from "react";
 import "./HowItWorks.css";
 import Zoom from "react-reveal/Zoom";
+import { Link } from "react-router-dom";
+
 
 function HowItWorks(props) {
   return (
@@ -16,7 +18,9 @@ function HowItWorks(props) {
             <p>{props.text2}</p>
           </div>
           <div className="button-container">
-            <button class="btn btn1">Get Started!</button>
+            <Link to="/getStarted">
+             <button class="btn btn1">Get Started!</button>
+            </Link>
           </div>
         </div>
       </Zoom>

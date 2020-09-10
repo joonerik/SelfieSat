@@ -7,6 +7,8 @@ function WIKIMains(props) {
   var color;
   var border;
   var background;
+  var textColor;
+
   if (props.boolean) {
     order = {
       flexFlow: "row-reverse",
@@ -20,6 +22,9 @@ function WIKIMains(props) {
     background = {
       background: "#3498db",
     };
+    textColor = {
+      color: "#3498db"
+    };
   } else {
     order = {
       flexFlow: "row",
@@ -32,6 +37,9 @@ function WIKIMains(props) {
     };
     background = {
       background: "#e3a935",
+    };
+    textColor = {
+      color: "#e3a935"
     };
   }
 

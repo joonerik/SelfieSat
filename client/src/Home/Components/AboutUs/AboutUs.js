@@ -1,5 +1,6 @@
 import React from "react";
 import Slide from 'react-reveal/Slide';
+import { Link } from "react-router-dom";
 
 
 import "./AboutUs.css";
@@ -15,7 +16,9 @@ function AboutUs(props) {
             <p>{props.text}</p>
             <p>{props.text2}</p>
             <div className="button-container">
+            <Link to="/orbitWiki">
               <button class="btn btn1">OrbitNTNU WIKI</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -71,6 +71,9 @@
   .OrbitWIKI-header .text-box h1 {
     font-size: 48px;
   }
+  .OrbitWIKI-header{
+    background-attachment: scroll;
+  }
 }
 @media screen and (max-width: 550px){
 
@@ -82,5 +85,9 @@
   }
   .OrbitWIKI-header .text-box {
     width: 80%;
+    text-align: center;
+  }
+  .OrbitWIKI-header{
+    background-attachment: scroll;
   }
 }

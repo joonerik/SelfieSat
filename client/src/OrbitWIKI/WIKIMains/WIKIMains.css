@@ -125,9 +125,14 @@
   position: absolute;
   left: 0;
   top: 0;
+  color: #ece8e1;
 }
 
 .WIKIMains-button a:hover {
+  color: #ece8e1;
+  cursor: pointer;
+}
+.WIKIMains-button:hover{
   color: #ece8e1;
   cursor: pointer;
 }
@@ -150,18 +155,32 @@
 @media screen and (max-width: 768px) {
   .WIKIMains-right p {
     font-size: 13px;
+
   }
   .WIKIMains-right h1 {
-    font-size: 23 px;
+    font-size: 23px;
+    text-align: center;
   }
   .WIKIMains-left {
     display: none;
   }
   .WIKIMains-body {
     background-color: black;
-    height: 74vh;
+    height: 77vh;
 
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .WIKIMains-right {
+    width: 70%;
+    height: 100%;
+    color: #ece8e1;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
 }
