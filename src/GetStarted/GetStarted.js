@@ -9,6 +9,8 @@ import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Button from "@material-ui/core/Button";
 import SendIcon from "@material-ui/icons/Send";
+import useForm from "./components/useForm";
+import validate from "./components/Validate";
 
 import { AnchorButton, Intent } from "@blueprintjs/core";
 
@@ -31,36 +33,27 @@ function GetStarted() {
   const [uploadImage, setUploadImage] = useState();
   const inputFile = useRef(null);
 
-  const [fullName, setFullName] = useState("");
-  const [fullNameError, setFullNameError] = useState("");
-  var nameFormat = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [phone, setPhone] = useState("");
-  const [phoneError, setPhoneError] = useState("");
+  const { handleFormChange, values, setValues, errors, setErrors } = useForm();
 
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
   const [crop, setCrop] = useState({ unit: "%", width: 30, aspect: 3 / 4 });
   const [completedCrop, setCompletedCrop] = useState(null);
 
-  const handleFullName = (e) => {
-    setFullName(e.target.value);
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handlePhone = (e) => {
-    setPhone(e.target.value);
-  };
-
   const handleFireBaseUpload = (e) => {
     e.preventDefault();
 
+    if (errors) {
+      setErrors(validate(values));
+    }
+    if (uploadImage == null) {
+      console.log("Image is required!");
+    }
+
+    /*
     // get crop goes here...
     const fileExtension = extractImageFileExtensionFromBase64(uploadImage);
-    const myFileName = phone + "." + fileExtension;
+    const myFileName = values.phone + "." + fileExtension;
 
     const imageData64 = previewCanvasRef.current.toDataURL(
       "image/" + fileExtension
@@ -97,20 +90,16 @@ function GetStarted() {
               .firestore()
               .collection("personals")
               .add({
-                fullName,
-                email,
-                phone,
+                values,
                 fireBaseUrl,
               })
               .then(() => {
-                setFullName("");
-                setEmail("");
-                setPhone("");
+                setValues({ fullName: "", email: "", phone: "" })
                 setUploadImage(null);
               });
           });
       }
-    );
+    );*/
   };
 
   const onSelectFile = (e) => {
@@ -175,15 +164,16 @@ function GetStarted() {
     <GetStartedContainer>
       {/*<Form />*/}
       <FormContainer>
-        <form onSubmit={handleFireBaseUpload}>
+        <form onSubmit={handleFireBaseUpload} noValidate>
           <h2>Send in your picture!</h2>
           <div className="form">
             <TextField
               id="outlined-basic"
+              name="fullName"
               label="Full Name*"
               variant="outlined"
-              value={fullName}
-              onChange={handleFullName}
+              value={values.fullName}
+              onChange={handleFormChange}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="start">
@@ -191,15 +181,18 @@ function GetStarted() {
                   </InputAdornment>
                 ),
               }}
+              error={errors.fullName}
+              helperText={errors.fullName}
             />
           </div>
           <div className="form">
             <TextField
               id="outlined-basic"
+              name="email"
               label="Email*"
               variant="outlined"
-              value={email}
-              onChange={handleEmail}
+              value={values.email}
+              onChange={handleFormChange}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="start">
@@ -207,15 +200,18 @@ function GetStarted() {
                   </InputAdornment>
                 ),
               }}
+              error={errors.email}
+              helperText={errors.email}
             />
           </div>
           <div className="form">
             <TextField
               id="outlined-basic"
+              name="phone"
               label="Phone*"
               variant="outlined"
-              value={phone}
-              onChange={handlePhone}
+              value={values.phone}
+              onChange={handleFormChange}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="start">
@@ -223,7 +219,8 @@ function GetStarted() {
                   </InputAdornment>
                 ),
               }}
-              helperText={phoneError}
+              error={errors.phone}
+              helperText={errors.phone}
             />
           </div>
 
@@ -277,7 +274,7 @@ function GetStarted() {
               />
             </div>
           )}
-
+          {/* Error message goes here */}
           <div className="form">
             <Button
               className="form-button"
