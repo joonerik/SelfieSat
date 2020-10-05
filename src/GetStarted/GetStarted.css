@@ -12,10 +12,13 @@
     height: 50px;
 }
 
-.inner-container .cropping-image-view{
+.cropping-image-view{
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 /* CSS FOR DRAG AND DROP AREA */
@@ -35,8 +38,8 @@
     margin-bottom: 7px;
 }
 .inner-container .draggable-container {
-    min-width: 30em;
-    max-width: 35em;
+    min-width: 25em;
+    max-width: 30em;
     min-height: 20em;
     max-height: 18em;
     background-color: rgba(147, 148, 148, 0.23);
@@ -125,7 +128,8 @@
     display: flex;
     justify-self: center;
     align-self: center;
-    left: 50%;
+    text-align: center;
+    left: 48%;
     transform: translateX(-50%);
     color: #797676;
 }
@@ -135,6 +139,18 @@
     justify-self: center;
     align-self: center;
     bottom: 8px;
-    left: 50%;
+    left: 48%;
     transform: translateX(-50%);
 }
+
+@media screen and (max-width: 550px) {
+    #outlined-basic{
+        width: 250px;
+    }
+    .inner-container .draggable-container {
+        min-width: 20em;
+        max-width: 20em;
+        
+    }
+  }
+

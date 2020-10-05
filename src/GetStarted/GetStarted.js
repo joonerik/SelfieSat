@@ -40,66 +40,69 @@ function GetStarted() {
   const [crop, setCrop] = useState({ unit: "%", width: 30, aspect: 3 / 4 });
   const [completedCrop, setCompletedCrop] = useState(null);
 
+  const [noImageError, setNoImageError] = useState(false);
+
   const handleFireBaseUpload = (e) => {
     e.preventDefault();
 
-    if (errors) {
-      setErrors(validate(values));
-    }
-    if (uploadImage == null) {
-      console.log("Image is required!");
-    }
+    if (!errors.fullName && !errors.email && !errors.phone && !(uploadImage == null)) {
+      // get crop goes here...
+      const fileExtension = extractImageFileExtensionFromBase64(uploadImage);
+      const myFileName = values.phone + "." + fileExtension;
 
-    /*
-    // get crop goes here...
-    const fileExtension = extractImageFileExtensionFromBase64(uploadImage);
-    const myFileName = values.phone + "." + fileExtension;
-
-    const imageData64 = previewCanvasRef.current.toDataURL(
-      "image/" + fileExtension
-    );
-
-    const myNewCroppedFile = base64StringtoFile(imageData64, myFileName);
-
-    // async magic goes here...
-    if (myNewCroppedFile === "") {
-      console.error(
-        `not an image, the image file is a ${typeof myNewCroppedFile}`
+      const imageData64 = previewCanvasRef.current.toDataURL(
+        "image/" + fileExtension
       );
-    }
 
-    const uploadTask = storage
-      .ref(`/images/${myNewCroppedFile.name}`)
-      .put(myNewCroppedFile);
+      const myNewCroppedFile = base64StringtoFile(imageData64, myFileName);
 
-    uploadTask.on(
-      "state_changed",
-      (snapShot) => {
-        console.log(snapShot);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(myNewCroppedFile.name)
-          .getDownloadURL()
-          .then((fireBaseUrl) => {
-            firebase
-              .firestore()
-              .collection("personals")
-              .add({
-                values,
-                fireBaseUrl,
-              })
-              .then(() => {
-                setValues({ fullName: "", email: "", phone: "" })
-                setUploadImage(null);
-              });
-          });
+      // async magic goes here...
+      if (myNewCroppedFile === "") {
+        console.error(
+          `not an image, the image file is a ${typeof myNewCroppedFile}`
+        );
       }
-    );*/
+
+      const uploadTask = storage
+        .ref(`/images/${myNewCroppedFile.name}`)
+        .put(myNewCroppedFile);
+
+      uploadTask.on(
+        "state_changed",
+        (snapShot) => {
+          console.log(snapShot);
+        },
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(myNewCroppedFile.name)
+            .getDownloadURL()
+            .then((fireBaseUrl) => {
+              firebase
+                .firestore()
+                .collection("personals")
+                .add({
+                  values,
+                  fireBaseUrl,
+                })
+                .then(() => {
+                  setValues({ fullName: "", email: "", phone: "" });
+                  setUploadImage(null);
+                });
+            });
+        }
+      );
+    } else {
+      if (errors) {
+        setErrors(validate(values));
+      }
+      if (uploadImage == null) {
+        setNoImageError(true);
+      }
+    }
   };
 
   const onSelectFile = (e) => {
@@ -107,6 +110,7 @@ function GetStarted() {
       const reader = new FileReader();
       reader.addEventListener("load", () => setUploadImage(reader.result));
       reader.readAsDataURL(e.target.files[0]);
+      setNoImageError(false);
     }
   };
 
@@ -235,7 +239,6 @@ function GetStarted() {
                   ref={inputFile}
                   onChange={onSelectFile}
                 />
-                <div className="files-preview-container"></div>
                 <div className="helper-text">Drag and Drop Images Here</div>
                 <div className="file-browser-container">
                   <AnchorButton
@@ -274,7 +277,11 @@ function GetStarted() {
               />
             </div>
           )}
-          {/* Error message goes here */}
+          {noImageError && (
+            <p style={{ color: "#F44336", fontSize: "13px" }}>
+              NB! An image is required before submitting
+            </p>
+          )}
           <div className="form">
             <Button
               className="form-button"
@@ -309,7 +316,7 @@ const GetStartedContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-  width: 35%;
+  width: 40%;
   min-height: 60vh;
   padding: 40px;
   background: rgba(255, 255, 255, 0.9);
@@ -318,11 +325,25 @@ const FormContainer = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: center;
 
   form {
     display: flex;
     flex-flow: column;
     align-items: center;
+  }
+  @media screen and (max-width: 1200px) and (min-width: 1025px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 1024px) and (min-width: 769px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 75%;
+  }
+  @media screen and (max-width: 550px) {
+    margin-top: 100px;
+    width: 90%;
   }
 `;
 
