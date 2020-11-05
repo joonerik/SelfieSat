@@ -1,3 +1,7 @@
+# Selfie Sat 
+## - a website for the Selfie Sat project by Orbit NTNU
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
