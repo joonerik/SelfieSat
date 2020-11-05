@@ -1,7 +1,7 @@
 # Selfie Sat 
 ## A website for the Selfie Sat project by Orbit NTNU
 
-If you want to checkout the website, download the folder, write "npm install", then "npm run" in command line.
+Website is not on a domain yet, but will be in the close future.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
